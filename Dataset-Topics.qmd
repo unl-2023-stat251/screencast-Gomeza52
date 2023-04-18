@@ -1,23 +1,23 @@
 ---
-author: "Your Name"
+author: "Anthonie Gomez"
 date: "2023-04-18"
 title: "Project Dataset and Topics"
 output: html
 categories: project
 ---
 
-[Link to dataset]()
+[Link to dataset](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-10/readme.md)
 
 Things you plan to investigate using this dataset:
 
-- Thing 1
-- Thing 2
-- Thing 3
+- Explore Salary Potential of Community Colleges in Midwest
+- Explore Quality of STEM Degrees Public across Midwest
+- Explore Diversity in Midwest vs other regions
 
 Stat 251 topics you plan to cover during the analysis:
 
-1. Topic 1
-2. Topic 2
-3. Topic 3
-4. Topic 4
+1. Cleaning Data
+2. Joining Data
+3. EDA
+4. Function & Programming 
 
