@@ -21,3 +21,5 @@ Stat 251 topics you plan to cover during the analysis:
 3. EDA
 4. Function & Programming 
 
+
+(2023-04-19 - This looks good. How are you planning to apply functions to your analysis? - Dr. V)
