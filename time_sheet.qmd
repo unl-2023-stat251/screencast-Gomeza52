@@ -1,0 +1,19 @@
+---
+title: "Time Sheet"
+format: html
+editor: visual
+---
+
+# Time Sheet
+
+1. Reshaping Data
+Around 5-6 min
+
+2. Cleaning Data
+Around 17 min
+
+3. Data Visualization
+Around 22-23 min
+
+4. Joining Data
+Around 36 min

@@ -52,12 +52,66 @@ library(tidyverse)
 
 tuition_cost <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_cost.csv")
 
-# tuition_income <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_income.csv")
-
 salary_potential <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/salary_potential.csv")
+
+diversity_school <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/diversity_school.csv")
 
 # historical_tuition <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/historical_tuition.csv")
 
-diversity_school <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/diversity_school.csv")
+# tuition_income <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_income.csv")
+```
+# Data Exploration
+
+```{r}
+library(skimr)
+skim(tuition_cost)
+tuition_cost
+
+tidy_tuition <- tuition_cost %>% pivot_longer(c("in_state_tuition", "in_state_total", "out_of_state_tuition", "out_of_state_total"), names_to = "names", values_to = "Cost") %>% separate(names, into = c("place_of_residence", "cost_type"), sep = "e_")
+
+```
+
+```{r}
+tidy_ne_tuition <- tidy_tuition %>% filter(state_code == "NE")
+
+# types of colleges
+colleges <- tidy_ne_tuition %>% filter(place_of_residence == "in**_statee", cost_type == "tuition")
+
+ggplot(colleges, aes(x = degree_length)) +
+  geom_bar() +
+  labs(
+    x = "Degree Length",
+    y = "Count",
+    title = "Degree Length Count"
+  )
+
+ggplot(colleges, aes(x = type)) +
+  geom_bar() +
+  labs(
+    x = "College Type",
+    y = "Count",
+    title = "College Type Count"
+  )
+
+ggplot(tidy_ne_tuition, aes(x = Cost, color = cost_type)) +
+  geom_histogram() +
+  labs(
+    x = "Cost",
+    y = "Count",
+    title = "Distribution of Tuition and COA (Cost of Attendance)"
+  )
+```
+
+```{r}
+diversity_tuition <- left_join(tidy_ne_tuition, diversity_school, by = c("name", "state"))
+
+POC <- c("Women", "American Indian / Alaska Native", "Black", "Hispanic", "Native Hawaiian / Pacific Islander", "Asian")
+
+clean_diversity_tuition <- diversity_tuition %>% filter(!is.na(category)) %>% filter(category %in% POC)
+
+ggplot(clean_diversity_tuition, aes(x = category, color = type)) +
+  geom_bar()
+
+
 ```
 

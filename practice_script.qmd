@@ -1,0 +1,35 @@
+---
+author: "Anthonie Gomez"
+date: "2023-05-04"
+title: "practice_script"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+
+tuition_cost <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_cost.csv")
+
+salary_potential <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/salary_potential.csv")
+
+diversity_school <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/diversity_school.csv")
+
+# historical_tuition <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/historical_tuition.csv")
+
+# tuition_income <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_income.csv")
+```
+
+
+```{r}
+library(skimr)
+skim(ne_tuition_cost)
+ne_tuition_cost <- tuition_cost %>% filter(state_code == "NE", !is.na(room_and_board))
+
+clean_ne_tuition <- ne_tuition_cost %>% 
+  pivot_longer(!c("name", "state", "state_code", "type", "degree_length", "room_and_board"), names_to = "origin", values_to = "values") %>%
+  separate(col = origin, into = c("origin", "cost type"), sep = "e_")
+
+clean_ne_tuition$origin <- clean_ne_tuition
+
+```
