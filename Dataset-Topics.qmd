@@ -22,3 +22,5 @@ Stat 251 topics you plan to cover during the analysis:
 4. Reshaping Data
 
 
+
+(2023-04-19 - This looks good. How are you planning to apply functions to your analysis? - Dr. V)
