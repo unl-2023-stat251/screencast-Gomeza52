@@ -1,8 +1,79 @@
 ---
-author: "Your Name"
+author: "Anthonie Gomez"
 date: "2023-04-20"
 title: "Screencast Pseudocode"
 output: html
 categories: project
 ---
+
+# Data Input and Cleaning
+Input the relevant spreadsheets throughout each portion of the project
+ - Use read_csv()
+ 
+Filter the spreadsheets for schools in Nebraska only (may change depending on question)
+  - Use filter("state abbreviation" == "NE") 
+
+Clean data of missing values by filtering out NA values
+- use filter() and !is.na()
+
+# Exploratory Data Analysis
+
+## General look at the data
+
+Use skim or base functions to do quick preview of data
+  - str(), dim(), head(), tail(), etc
+  
+Reshape tuition cost and salary potential tables (both are wide)
+  - For tuition cost, pivot_longer() so that we have three columns, tuition type, tuition, total
+  - for salary potential, pivot_longer() so that we have two columns, career stage, and career pay
+
+1. Get a brief idea of the collegiate landscape of Nebraska
+
+Create bar chart of number of colleges of each type (Public, Private Nonprofit, Private For-Profit) with x = college type
+  - ggplot()....geom_bar()
+  
+Create histogram of total COA (Cost of Attendance) of all colleges (then facet or use color to differentiate between types) by having the x = COA
+- ggplot()...geom_hist()
+
+Maybe some other plots from the other tables...
+
+2. Exploring Salary Potential of Community Colleges (in NE)
+
+First we want to filter the tables for the relevant columns. 
+
+Then we can left join the salary potential table onto the tuition cost table on School Name or State
+- left_join()...by....
+
+Then we can create boxplots, with x being the type of school (2 or 4 year) and y being the Pay, faceted by Career Stage
+- ggplot()...geom_box()...facet(~Pay)
+
+Then we can look at personal satisfaction after graduation (make world better place column) by creating boxplot with x = degree type and y = make world better percent 
+- ggplot()...geom_box()
+- Or histogram 
+
+3. Quality of STEM Degrees in Nebraska
+
+Using the previous tables, we can first investigate for relationships between variables in the salary potential table
+- With x = stem percent...
+ + plot scatterplot with x and y = make world better percent
+ + plot scatterplot with x and y = pay with color = career stage
+ + plot scatterplot with x and y = ranking
+
+Possibly view clusters by setting color = college type/degree length
+
+4. Diversity in Nebraska Colleges
+
+Women
+Create boxplots with x = degree length, y = enrollment (filtered for women), then possibly facet with type of college
+
+Hispanic 
+Create boxplots with x = degree length, y = enrollment (filtered for Hispanic), then possibly facet with type of college
+
+May add more if time allows....
+
+
+
+
+
+
 

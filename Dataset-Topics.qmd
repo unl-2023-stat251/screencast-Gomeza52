@@ -10,14 +10,15 @@ categories: project
 
 Things you plan to investigate using this dataset:
 
-- Explore Salary Potential of Community Colleges in Midwest
-- Explore Quality of STEM Degrees Public across Midwest
-- Explore Diversity in Midwest vs other regions
+- Explore Salary Potential of Community Colleges in Nebraska
+- Explore Quality of STEM Degrees in Nebraska
+- Explore Diversity in Nebraska schools
 
 Stat 251 topics you plan to cover during the analysis:
 
 1. Cleaning Data
 2. Joining Data
 3. EDA
-4. Function & Programming 
+4. Reshaping Data
+
 

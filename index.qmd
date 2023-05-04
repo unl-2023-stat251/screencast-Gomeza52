@@ -1,5 +1,5 @@
 ---
-author: "Your Name"
+author: "Anthonie Gomez"
 date: "2023-05-04"
 title: "Project: Screencast"
 output: html
@@ -42,4 +42,22 @@ There will be three deliverables for this project:
     - Code uploaded to github repository
 
 In lieu of the final exam, you will peer review two classmates' screencasts. 
+
+# Project
+
+## Data Import
+
+```{r}
+library(tidyverse)
+
+tuition_cost <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_cost.csv")
+
+# tuition_income <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/tuition_income.csv")
+
+salary_potential <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/salary_potential.csv")
+
+# historical_tuition <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/historical_tuition.csv")
+
+diversity_school <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-10/diversity_school.csv")
+```
 
